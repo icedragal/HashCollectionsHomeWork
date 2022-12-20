@@ -1,9 +1,12 @@
 import multiply.Exercise;
+import pasport.Passport;
+import pasport.PassportList;
 import transport.*;
 import transport.driver.DriverB;
 import transport.driver.DriverC;
 import transport.driver.DriverD;
 
+import java.time.LocalDate;
 import java.util.*;
 
 public class Main {
@@ -19,16 +22,16 @@ public class Main {
         Random random = new Random();
         Set<Integer> numbers = new HashSet<>();
 
-        while (numbers.size()<20){
+        while (numbers.size() < 20) {
             numbers.add(random.nextInt(1001));
         }
         System.out.println(numbers);
 
         Iterator<Integer> iterator = numbers.iterator();
 
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             Integer number = iterator.next();
-            if (number % 2 == 1){
+            if (number % 2 == 1) {
                 iterator.remove();
             }
         }
@@ -77,12 +80,23 @@ public class Main {
 
         printInfo(bus1);
 
+        System.out.println("Задание 3.2");
         Set<Exercise> exercises = new HashSet<>();
-        while (exercises.size() < 15){
-            Exercise exercise = new Exercise(random.nextInt(8) +2, random.nextInt(8) +2);
+        while (exercises.size() < 15) {
+            Exercise exercise = new Exercise(random.nextInt(8) + 2, random.nextInt(8) + 2);
             exercises.add(exercise);
         }
         System.out.println(exercises);
+
+        System.out.println("Задание 3.3");
+        Set<Passport> passports = new HashSet<>();
+        passports.add(new Passport("213444", "Иванов", "Иван", "Иванович", LocalDate.now().minusYears(20)));
+
+        PassportList passportList = new PassportList(passports);
+        System.out.println(passportList);
+        passportList.add(new Passport("233346", "Петров", "Петр", "Петрович", LocalDate.now().minusYears(70)));
+        System.out.println(passportList);
+        System.out.println(passportList.get("213444"));
     }
 
     private static void printInfo(Transport transport) {
