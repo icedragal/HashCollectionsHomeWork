@@ -1,3 +1,4 @@
+import multiply.Exercise;
 import transport.*;
 import transport.driver.DriverB;
 import transport.driver.DriverC;
@@ -75,6 +76,13 @@ public class Main {
         bus1.addSponsor(tinkoff1);
 
         printInfo(bus1);
+
+        Set<Exercise> exercises = new HashSet<>();
+        while (exercises.size() < 15){
+            Exercise exercise = new Exercise(random.nextInt(8) +2, random.nextInt(8) +2);
+            exercises.add(exercise);
+        }
+        System.out.println(exercises);
     }
 
     private static void printInfo(Transport transport) {
