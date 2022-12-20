@@ -97,6 +97,8 @@ public class Main {
         passportList.add(new Passport("233346", "Петров", "Петр", "Петрович", LocalDate.now().minusYears(70)));
         System.out.println(passportList);
         System.out.println(passportList.get("213444"));
+        // Задание 3.4
+        // Стоит использовать HashSet, так как в нем происходит наиболее быстрый поиск, по hash code.
     }
 
     private static void printInfo(Transport transport) {
